@@ -1,0 +1,32 @@
+body {
+  box-sizing: border-box;
+}
+
+.board {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.square {
+  background-color: #78bec5;
+  border-radius: 14px;
+  cursor: pointer;
+  color: dodgerblue;
+  height: 140px;
+  margin: 5px;
+  width: 140px;
+  transition: background-color .3s;
+}
+
+.square:hover {
+  background-color: #3d4250;
+}
