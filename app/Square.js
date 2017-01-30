@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import constants from './constants'
 
 class Square extends Component {
@@ -24,6 +24,14 @@ class Square extends Component {
         onClick={() => this.props.onMove()} />
     )
   }
+}
+
+Square.propTypes = {
+  value: PropTypes.shape({
+    selected: PropTypes.bool,
+    value: PropTypes.string
+  }).isRequired,
+  onMove: PropTypes.func.isRequired
 }
 
 export default Square

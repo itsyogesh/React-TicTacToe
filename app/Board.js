@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Square from './Square'
 
 class Board extends Component {
 
   renderSquare (i) {
-    console.log('position', i, 'value', this.props.gameMatrix[i])
     return (
       <Square
         key={i}
@@ -34,6 +33,14 @@ class Board extends Component {
       </div>
     )
   }
+}
+
+Board.propTypes = {
+  gameMatrix: PropTypes.arrayOf(PropTypes.shape({
+    selected: PropTypes.bool,
+    value: PropTypes.string
+  })).isRequired,
+  onMove: PropTypes.func.isRequired
 }
 
 export default Board

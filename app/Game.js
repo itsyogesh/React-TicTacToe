@@ -29,17 +29,13 @@ class Game extends Component {
     moves++
     currentPlayer = (currentPlayer === constants.PLAYER_X) ? constants.PLAYER_Y : constants.PLAYER_X
     winner = checkWinner(gameMatrix, moves)
-    console.log('checking winner', (winner && winner !== constants.DRAW))
     if (winner && winner !== constants.DRAW) {
-      console.log('player x wins')
       if (winner === constants.PLAYER_X) {
-        console.log('player x wins')
         ++playerXWins
       } else if (winner === constants.PLAYER_Y) {
         ++playerYWins
       }
     }
-    console.log(winner, playerXWins, playerYWins)
 
     this.setState({
       moves,
@@ -75,11 +71,11 @@ class Game extends Component {
       <div>
         {
           (this.state.winner)
-          ? <GameOver winner={this.state.winner} reset={this.reset} /> :
-            <div>
-              <Board gameMatrix={this.state.gameMatrix} onMove={(position) => this.onMove(position)} />
-              <Dashboard reset={this.reset} />
-            </div>
+          ? <GameOver winner={this.state.winner} reset={this.reset} />
+        : <div>
+          <Board gameMatrix={this.state.gameMatrix} onMove={(position) => this.onMove(position)} />
+          <Dashboard reset={this.reset} />
+        </div>
         }
       </div>
     )

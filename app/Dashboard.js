@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 function Dashboard (props) {
   return (
@@ -7,6 +7,10 @@ function Dashboard (props) {
       <a href='' onClick={props.reset}>Reset</a>
     </div>
   )
+}
+
+Dashboard.propTypes = {
+  reset: PropTypes.func.isRequired
 }
 
 export default Dashboard

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import constants from './constants'
 
 function GameOver (props) {
@@ -18,6 +18,11 @@ function GameOver (props) {
       <a href='' onClick={props.reset}>Restart</a>
     </div>
   )
+}
+
+GameOver.propTypes = {
+  winner: PropTypes.string.isRequired,
+  reset: PropTypes.func.isRequired
 }
 
 export default GameOver
