@@ -21,10 +21,10 @@ class Game extends Component {
 
   onMove (position) {
     let gameMatrix = nestedArrayDeepCopy(this.state.gameMatrix)
-    let { moves, winner, currentPlayer, playerXWins, playerYWins } = this.state
     if (gameMatrix[position] && gameMatrix[position].selected) {
       return
     }
+    let { moves, winner, currentPlayer, playerXWins, playerYWins } = this.state
     gameMatrix[position] = {value: currentPlayer, selected: true}
     moves++
     currentPlayer = (currentPlayer === constants.PLAYER_X) ? constants.PLAYER_Y : constants.PLAYER_X
@@ -61,13 +61,26 @@ class Game extends Component {
     })
   }
 
+  renderGame () {
+    return (
+      <div>
+        <Board gameMatrix={this.state.gameMatrix} onMove={(position) => this.onMove(position)} />
+        <Dashboard reset={this.reset} />
+      </div>
+    )
+  }
+
   render () {
     return (
       <div>
         {
-          (this.state.winner) ? <GameOver winner={this.state.winner} reset={this.reset} /> : <Board gameMatrix={this.state.gameMatrix} onMove={(position) => this.onMove(position)} />
+          (this.state.winner)
+          ? <GameOver winner={this.state.winner} reset={this.reset} /> :
+            <div>
+              <Board gameMatrix={this.state.gameMatrix} onMove={(position) => this.onMove(position)} />
+              <Dashboard reset={this.reset} />
+            </div>
         }
-        <Dashboard xWins={this.state.playerXWins} yWins={this.state.playerYWins} />
       </div>
     )
   }

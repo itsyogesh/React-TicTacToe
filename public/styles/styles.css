@@ -82,7 +82,7 @@ body {
     font-family: FontAwesome;
     content: "\f10c";
     position: absolute;
-    margin: 20px;
+    margin: 20px 22px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
     font-size: 50px;
 }
@@ -96,7 +96,11 @@ body {
 .dashboard h3 {
   font-size: 24px;
   font-weight: 700;
-  margin-bottom: 5vh; 
+  margin-bottom: 5vh;
+}
+
+.dashboard a {
+  background-color: #849324;
 }
 
 a {
