@@ -1,28 +1,36 @@
 import React, { Component } from 'react'
-import Row from './Row'
+import Square from './Square'
 
 class Board extends Component {
-  constructor (props) {
-    super(props)
 
-    this.state = {
-      currentPlayer: null,
-      winner: null
-    }
-  }
-
-  getRows (number) {
-    let rows = []
-    for (let i = 0; i < number; i++) {
-      rows.push(<Row key={i} columns={this.props.columns} currentPlayer={this.state.currentPlayer} />)
-    }
-    return rows
+  renderSquare (i) {
+    console.log('position', i, 'value', this.props.gameMatrix[i])
+    return (
+      <Square
+        key={i}
+        value={this.props.gameMatrix[i]}
+        onMove={() => this.props.onMove(i)}
+      />
+    )
   }
   render () {
-    console.log(this.props)
     return (
       <div className='board'>
-        {this.getRows(this.props.rows) }
+        <div className='row'>
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className='row'>
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div className='row'>
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
       </div>
     )
   }

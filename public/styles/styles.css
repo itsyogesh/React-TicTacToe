@@ -1,14 +1,34 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato:700,900');
+
+html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Lato', 'Helvetica', 'sans-serif';
+}
+
 body {
   box-sizing: border-box;
 }
 
+.header {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.header h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
 .board {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 10vh;
 }
 
 .row {
@@ -18,15 +38,86 @@ body {
 
 .square {
   background-color: #78bec5;
-  border-radius: 14px;
-  cursor: pointer;
-  color: dodgerblue;
-  height: 140px;
-  margin: 5px;
-  width: 140px;
+  border-radius: 9px;
+  color: #fff;
+  height: 90px;
+  margin: 3px;
+  width: 90px;
   transition: background-color .3s;
+  font-size: 45px;
+  text-align: center;
 }
 
-.square:hover {
+.square-pure {
+  cursor: pointer;
+}
+
+.square-pure:hover {
   background-color: #3d4250;
+}
+
+.square-player-x {
+  cursor: default;
+  background-color: #dc685a;
+  text-align: center;
+}
+.square-player-x:after {
+    display: block;
+    font-family: FontAwesome;
+    position: absolute;
+    margin: 20px 25px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    content: "\f00d";
+    font-size: 50px;
+}
+
+.square-player-y {
+  cursor: default;
+  background-color: #ecaf4f;
+}
+
+.square-player-y:after {
+    display: block;
+    position: absolute;
+    font-family: FontAwesome;
+    content: "\f10c";
+    position: absolute;
+    margin: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    font-size: 50px;
+}
+
+.dashboard {
+  color: #3d4250;
+  margin-top: 7vh;
+  text-align: center;
+}
+
+.dashboard h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5vh; 
+}
+
+a {
+  background-color: #3d4250;
+  border-radius: 4px;
+  color: #fff;
+  padding: 14px 45px;
+  text-decoration: none;
+  transition: background-color .2s;
+}
+
+a:hover {
+  background-color: #262934;
+  cursor: pointer;
+}
+
+.game-over {
+  text-align: center;
+  padding: 7vh;
+}
+
+.game-over .game-over-text {
+  padding: 5vh;
 }

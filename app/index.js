@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import Board from './Board'
+import Game from './Game'
 
 class App extends Component {
   render () {
     return (
-      <Board rows={3} columns={3} />
+      <div className='container'>
+        <div className='header'>
+          <h1>Welcome to Tic Tac Toe</h1>
+        </div>
+        <Game />
+      </div>
     )
   }
 }
